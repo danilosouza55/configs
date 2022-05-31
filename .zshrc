@@ -133,4 +133,5 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-export PATH="$PATH:`pwd`/development/flutter/bin"
+export PATH="$PATH:/home/danilo/development/flutter/bin"
+
