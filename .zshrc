@@ -133,5 +133,34 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-export PATH="$PATH:/home/danilo/development/flutter/bin"
+# zsh parameter completion for the dotnet CLI
+
+_dotnet_zsh_complete()
+{
+  local completions=("$(dotnet complete "$words")")
+
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+
+compdef _dotnet_zsh_complete dotnet
+
+
+export ANDROID_HOME=/home/atroit/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+export PATH="$PATH:$HOME/.puro/bin" # Added by Puro
+export PATH="$PATH:$HOME/.puro/shared/pub_cache/bin" # Added by Puro
+export PATH="$PATH:$HOME/.puro/envs/default/flutter/bin" # Added by Puro
+export PURO_ROOT="/home/atroit/.puro" # Added by Puro
+export PUB_CACHE="/home/atroit/.puro/shared/pub_cache" # Added by Puro
+
+
 
