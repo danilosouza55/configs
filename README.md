@@ -1,2 +1,2 @@
 # configs
-#zshrc
+# zshrc
