@@ -92,7 +92,7 @@ SPACESHIP_CHAR_SUFFIX=" "
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow fast-syntax-highlighting zsh-autosuggestions zsh-completions docker docker-compose )
+plugins=(git git-flow fast-syntax-highlighting zsh-autosuggestions zsh-completions docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,7 +124,7 @@ source $ZSH/oh-my-zsh.sh
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zini>
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
     command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
         print -P "%F{33} %F{34}Installation successful.%f%b" || \
@@ -136,31 +136,11 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-# zsh parameter completion for the dotnet CLI
-
-_dotnet_zsh_complete()
-{
-  local completions=("$(dotnet complete "$words")")
-
-  # If the completion list is empty, just continue with filename selection
-  if [ -z "$completions" ]
-  then
-    _arguments '*::arguments: _normal'
-    return
-  fi
-
-  # This is not a variable assignment, don't remove spaces!
-  _values = "${(ps:\n:)completions}"
-}
-
-compdef _dotnet_zsh_complete dotnet
-
-
-export ANDROID_HOME=/home/atroit/Android/Sdk
+export ANDROID_HOME=/home/danilo/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 export PATH="$PATH:$HOME/.puro/bin" # Added by Puro
 export PATH="$PATH:$HOME/.puro/shared/pub_cache/bin" # Added by Puro
 export PATH="$PATH:$HOME/.puro/envs/default/flutter/bin" # Added by Puro
-export PURO_ROOT="/home/atroit/.puro" # Added by Puro
-export PUB_CACHE="/home/atroit/.puro/shared/pub_cache" # Added by Puro
+export PURO_ROOT="/home/danilo/.puro" # Added by Puro
+export PUB_CACHE="/home/danilo/.puro/shared/pub_cache" # Added by Puro
